@@ -3,18 +3,14 @@ Yoson
 
 Implementación del framework Javascript Yoson in PHP
 
-**[Changelog](https://github.com/luismayta/yoson/CHANGELOG.rst)** ||
-
 
 Installation
 ------------
 
-**Normally:** If you *don't* use composer, don't worry - just include TwitterAPIExchange.php in your application. 
-
 **Via Composer:** If you *do* use composer, here's what you add to your composer.json file to have yoson automatically 
 imported into your vendor's folder:
 
-.. code-block:: javascript
+.. code-block:: json
 
     {
         "require": {
