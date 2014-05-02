@@ -1,0 +1,38 @@
+{
+    "name": "luismayta/yoson",
+    "description": "Implementación del Framework Yoson in PHP",
+    "type": "library",
+    "keywords": [
+        "zf2",
+        "zend",
+        "module",
+        "Yoson"
+    ],
+    "homepage": "https://github.com/luismayta/yoson",
+    "authors": [
+        {
+            "name": "Luis Alberto Mayta Mamani",
+            "email": "slovacus@gmail.com",
+            "homepage": "https://github.com/luismayta"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "zendframework/zendframework": "2.*"
+    },
+	"require-dev": {
+            "fabpot/php-cs-fixer": "dev-master",
+            "phpunit/phpunit": "3.7.27",
+            "fabpot/php-cs-fixer": "0.4.*@dev"
+        },
+        "prefer-stable": true,
+        "minimum-stability": "dev",
+        "autoload": {
+            "psr-0": {
+                "LammCore": "src/"
+            },
+            "classmap": [
+                "./"
+            ]
+        }
+}
