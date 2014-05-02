@@ -3,7 +3,6 @@
 namespace Yoson;
 
 use Zend\ModuleManager\Feature\AutoloaderProviderInterface,
-    Application\Model\Data\Cookie,
     Zend\ModuleManager\Feature\ConfigProviderInterface,
     Zend\Mvc\MvcEvent,
     Zend\Mvc\Router\RouteMatch;
@@ -16,8 +15,6 @@ class Module implements AutoloaderProviderInterface, ConfigProviderInterface
             $view = $event->getApplication()->getServiceManager()->get('ViewRenderer');
             $config = $event->getApplication()->getConfig();
             $controller = $event->getTarget();
-
-            $gmap = $config['gmap'];
 
             $rm = $event->getRouteMatch();
             if (!($rm instanceof RouteMatch)) {
@@ -32,10 +29,9 @@ class Module implements AutoloaderProviderInterface, ConfigProviderInterface
                 );
             }
 
-            $cookie = new Cookie();
-
             $params = $rm->getParams();
             $modulo = "";
+
             if (isset($params['__NAMESPACE__'])) {
                 $paramsArray = explode("\\", $params['__NAMESPACE__']);
                 $modulo = $paramsArray[0];
@@ -46,13 +42,6 @@ class Module implements AutoloaderProviderInterface, ConfigProviderInterface
             $action = isset($params['action']) ? $params['action'] : null;
             $app = $event->getParam('application');
             $sm = $app->getServiceManager();
-            $userSess = $sm->get('pidLogin');
-            $datU = $userSess->getIdentity();
-            $idUsuario = 0;
-
-            if (!empty($datU)) {
-                $idUsuario = $datU->uuid;
-            }
 
             $paramsConfig = [
                 'modulo' => strtolower($modulo),
@@ -65,11 +54,8 @@ class Module implements AutoloaderProviderInterface, ConfigProviderInterface
                     'eHost' => $view->linkElements()->getUrl() . "/",
                     'statVers' => '?'.$view->LinkCdn()->getLastCommit(),
                     'min' => '',
-                    'idUsuario' => $idUsuario,
-                    'cookie_search' => $cookie->getSkeletonCookie(),
                     'AppCore' => [],
                     'AppSandbox' => [],
-                    'Gmap' => $gmap ,
                     'AppSchema' => [ 'modules'=>[], 'requires'=>[] ]
                     ];
 
