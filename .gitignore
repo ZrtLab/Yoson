@@ -1,3 +1,7 @@
-composer.phar
+bin
+include
+lib
 vendor
 composer.lock
+composer.phar
+.build
