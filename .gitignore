@@ -1,6 +1,8 @@
-composer.phar
-vendor
-composer.lock
 bin
 include
 lib
+vendor
+composer.lock
+composer.phar
+build
+.build

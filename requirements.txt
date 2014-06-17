@@ -1,0 +1,4 @@
+sphinx==1.2.2
+sphinx_rtd_theme
+pygments
+sphinxcontrib-plantuml==0.4
